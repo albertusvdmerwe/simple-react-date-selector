@@ -11,5 +11,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "albert <albertusvdmerwe@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@material-ui/core": "^3.4.0",
+    "@material-ui/icons": "^3.0.1"
+  }
 }

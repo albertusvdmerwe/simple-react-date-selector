@@ -14,4 +14,4 @@ export const stylesObjects={
         color:'black',
         backgroundColor:'white'
     }
-}
+};

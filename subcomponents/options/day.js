@@ -40,7 +40,7 @@ class Day extends Component {
                                     }
         
         
-                                    return <Selections key={`days-selector-${day}`} value={day} onClick={value=>onChange(value)}/>
+                                    return <Selections key={`days-selector-${day}`} value={day} onClick={value=>onChange(value)}/>;
                                 }
                             )
                         }

@@ -50,7 +50,7 @@ Year.propTypes={
     day:PropTypes.string.isRequired,
     headerStyles:PropTypes.object.isRequired,
     bodyStyles:PropTypes.object.isRequired
-}
+};
 
 
 export default Year;

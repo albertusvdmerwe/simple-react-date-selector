@@ -37,7 +37,7 @@ class Month extends Component {
                                 }
 
     
-                                return <Selections key={`months-selector-${month}`} value={month} onClick={value=>onChange(value)}/>
+                                return <Selections key={`months-selector-${month}`} value={month} onClick={value=>onChange(value)}/>;
                             }
                         )
                     }

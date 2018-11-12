@@ -62,7 +62,7 @@ class Datepicker extends Component {
         const {handleItemSelected,closeModal,state,props}=this;
 
         return(
-            <React.Fragment>
+            <div>
                 <GeneralModal visible={modalVisible} onClick={closeModal}> 
                     <Pickers {...state} {...props} onChange={handleItemSelected}/>
                 </GeneralModal>
@@ -71,7 +71,7 @@ class Datepicker extends Component {
                     onClick={()=>this.setState({modalVisible:true})}
                     value={value}
                 />
-            </React.Fragment>
+            </div>
         );
 
     }

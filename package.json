@@ -1,6 +1,6 @@
 {
   "name": "simple-react-date-selector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple date picker for ReactJS",
   "main": "index.js",
   "repository": {
@@ -13,7 +13,7 @@
   "author": "albert <albertusvdmerwe@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "@material-ui/core": "^3.4.0",
-    "@material-ui/icons": "^3.0.1"
+    "@material-ui/core": "3.4.0",
+    "@material-ui/icons": "3.0.1"
   }
 }

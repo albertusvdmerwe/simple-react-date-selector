@@ -1,6 +1,6 @@
 {
   "name": "simple-react-date-selector",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple date picker for ReactJS",
   "main": "index.js",
   "repository": {
@@ -17,13 +17,13 @@
     "@material-ui/icons": "^3.0.1",
     "moment": "^2.22.2",
     "prop-types": "^15.6.2",
-    "react": "^16.6.1"
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.5",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
+    "@babel/preset-env": "^7.1.5",
+    "@babel/preset-react": "^7.0.0",
     "babelify": "^10.0.0",
     "browserify": "^16.2.3",
     "eslint": "^5.9.0",

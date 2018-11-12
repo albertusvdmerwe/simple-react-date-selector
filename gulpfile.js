@@ -9,6 +9,7 @@ const streamify = require("gulp-streamify");
 gulp.task("transpile_js",(cb)=>{ 
 
 	browserify({
+		entries:'./app.js',
 		debug: true
 	})
 		.transform(babelify)

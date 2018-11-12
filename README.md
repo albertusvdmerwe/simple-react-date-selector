@@ -36,8 +36,7 @@ A simple react date picker component.
 
 *Add it to your application's component - for example:*
 
-`
-import React,{Component} from "react";
+`import React,{Component} from "react";
 import Datepicker from 'simple-react-date-selector';
 
 export default class MyComponent{

@@ -4,7 +4,10 @@ A simple react date picker component.
 
 **Preview:**
 
-
+![Year](screenshots/year.png)
+![Month](screenshots/month.png)
+![Day](screenshots/day.png)
+![Selected](screenshots/selected.png)
 
 **Props:**
 
@@ -27,22 +30,13 @@ A simple react date picker component.
 
 **Example usage:**
 
-**Add the SCSS file to your application's root SCSS file - for example:**
+*Add the SCSS file to your application's root SCSS file - for example:*
 
-`@import "../node_modules/simple-react-date-selector/styles/app";`
+`@import "../node_modules/simple-react-date-selector/styles/picker";`
 
-**Add it to your application's component - for example:**
+*Add it to your application's component - for example:*
 
 `
-/* Your own React Component */
-
-/*
-    Import the 'simple-react-date-selector' component 
-    This is a default exports, so feel free to name the component whatever you like.
-*/
-
-/*Example of using the component*/
-
 import React,{Component} from "react";
 import Datepicker from 'simple-react-date-selector';
 
@@ -62,5 +56,4 @@ export default class MyComponent{
         )
 
     }
-}
-`
+}`

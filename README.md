@@ -32,11 +32,14 @@ A simple react date picker component.
 
 *Add the SCSS file to your application's root SCSS file - for example:*
 
-`@import "../node_modules/simple-react-date-selector/styles/picker";`
+```css
+@import "../node_modules/simple-react-date-selector/styles/picker";
+```
 
 *Add it to your application's component - for example:*
 
-`import React,{Component} from "react";
+```javascript
+import React,{Component} from "react";
 import Datepicker from 'simple-react-date-selector';
 
 export default class MyComponent{
@@ -55,4 +58,4 @@ export default class MyComponent{
         )
 
     }
-}`
+}```

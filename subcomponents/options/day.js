@@ -11,36 +11,44 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import moment from "moment";
 import Selections from "./item/selections";
 var Day = /** @class */ (function (_super) {
     __extends(Day, _super);
-    function Day() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function Day(props) {
+        var _this = _super.call(this, props) || this;
+        _this.handleClick = _this.handleClick.bind(_this);
+        return _this;
     }
     Day.prototype.getDayArray = function () {
         var daysArray = [];
-        var props = Object.assign(this.props);
-        var year = props.year, month = props.month;
+        var _a = this.props, year = _a.year, month = _a.month;
         var noOfDays = moment(year + "-" + month, "YYYY-MM").daysInMonth();
         for (var x = 1; x <= noOfDays; x++) {
             daysArray.push(x);
         }
         return daysArray;
     };
+    Day.prototype.handleClick = function (value) {
+        var onChange = this.props.onChange;
+        onChange(value);
+    };
+    Day.prototype.getFullDay = function (day) {
+        if (day < 10) {
+            return "0" + day.toString();
+        }
+        return day.toString();
+    };
     Day.prototype.render = function () {
-        var _a = this.props, onChange = _a.onChange, year = _a.year, month = _a.month, day = _a.day, headerStyles = _a.headerStyles, bodyStyles = _a.bodyStyles;
+        var _this = this;
+        var _a = this.props, year = _a.year, month = _a.month, day = _a.day, headerStyles = _a.headerStyles, bodyStyles = _a.bodyStyles;
         if (year && month && !day) {
             return (React.createElement("div", { className: "simple-react-date-selector-scrollables" },
                 React.createElement("div", { className: "simple-react-date-selector-selection-heading", style: headerStyles }, "Day"),
-                React.createElement("div", { style: bodyStyles }, this.getDayArray()
-                    .map(function (day) {
-                    day = String(day);
-                    if (day.length === 1) {
-                        day = "0" + day;
-                    }
-                    return React.createElement(Selections, { key: "days-selector-" + day, value: day, onClick: function (value) { return onChange(value); } });
+                React.createElement("div", { style: bodyStyles }, this.getDayArray().map(function (dayValue) {
+                    var dayAsString = _this.getFullDay(dayValue);
+                    return (React.createElement(Selections, { key: "days-selector-" + dayAsString, value: dayAsString, onClick: _this.handleClick }));
                 }))));
         }
         return null;

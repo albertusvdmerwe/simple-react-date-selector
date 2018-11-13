@@ -1,6 +1,6 @@
 export const defaultState={
-    year:"",
-    month:"",
     day:"",
-    modalVisible:false
+    modalVisible:false,
+    month:"",
+    year:""
 };

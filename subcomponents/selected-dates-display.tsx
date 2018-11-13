@@ -5,7 +5,7 @@ class SelectedDatesDisplay extends Component {
     
     render() {
 
-        const {year,month,day,footerStyles}=this.props;
+        const {year,month,day,footerStyles}=this.props; 
 
         if(year!=="")
         {

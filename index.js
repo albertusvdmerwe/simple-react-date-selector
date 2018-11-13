@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var datepicker_1 = require("./datepicker");
-exports.default = datepicker_1.default;
+import Datepicker from "./datepicker";
+export default Datepicker;
 //# sourceMappingURL=index.js.map

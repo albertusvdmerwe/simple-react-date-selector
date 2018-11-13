@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Selections from "./item/selections";
 
-class Month extends Component {
+interface Props{
+    onChange:(value:string)=>void;
+    year:string;
+    month:string;
+    day:string;
+    headerStyles:object;
+    bodyStyles:object;
+}
+
+
+class Month extends Component <Props,{}>{
     
     getMonthArray(){
         const monthItems=[];
@@ -49,14 +58,5 @@ class Month extends Component {
         return null;
     }
 }
-
-Month.propTypes = {
-    onChange:PropTypes.func.isRequired,
-    year:PropTypes.string.isRequired,
-    month:PropTypes.string.isRequired,
-    day:PropTypes.string.isRequired,
-    headerStyles:PropTypes.object.isRequired,
-    bodyStyles:PropTypes.object.isRequired
-};
 
 export default Month;

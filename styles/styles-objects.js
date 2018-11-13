@@ -1,17 +1,18 @@
-export const stylesObjects={
-    headerStyles:{
-        color:"black",
-        backgroundColor:'white'
+export var stylesObjects = {
+    header: {
+        color: "black",
+        backgroundColor: 'white'
     },
-    bodyStyles:{
-        color:'black',
-        backgroundColor:'white'
+    body: {
+        color: 'black',
+        backgroundColor: 'white'
     },
-    containerStyles:{
-        backgroundColor:'white'
+    container: {
+        backgroundColor: 'white'
     },
-    footerStyles:{
-        color:'black',
-        backgroundColor:'white'
+    footer: {
+        color: 'black',
+        backgroundColor: 'white'
     }
 };
+//# sourceMappingURL=styles-objects.js.map

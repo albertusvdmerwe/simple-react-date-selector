@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import moment from "moment";
 
 import Selections from "./item/selections";
 const year = moment().year();
 
-class Year extends Component {
+interface Props{
+    onChange:(value:string)=>void;
+    year:string;
+    month:string;
+    day:string;
+    headerStyles:object;
+    bodyStyles:object;
+}
+
+class Year extends Component <Props,{}>{
     
     getYearArray(){
         var yearItems=[];
@@ -42,15 +50,5 @@ class Year extends Component {
         return null;
     }
 }
-
-Year.propTypes={
-    onChange:PropTypes.func.isRequired,
-    year:PropTypes.string.isRequired,
-    month:PropTypes.string.isRequired,
-    day:PropTypes.string.isRequired,
-    headerStyles:PropTypes.object.isRequired,
-    bodyStyles:PropTypes.object.isRequired
-};
-
 
 export default Year;

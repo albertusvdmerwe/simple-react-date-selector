@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-class SelectedDatesDisplay extends Component {
+interface Props{
+    year:string;
+    month:string;
+    day:string;
+    footerStyles:object;
+}
+
+class SelectedDatesDisplay extends Component<Props,{}> {
     
     render() {
 
@@ -33,12 +39,5 @@ class SelectedDatesDisplay extends Component {
         return null;
     }
 }
-
-SelectedDatesDisplay.propTypes = {
-    year:PropTypes.string.isRequired,
-    month:PropTypes.string.isRequired,
-    day:PropTypes.string.isRequired,
-    footerStyles:PropTypes.object.isRequired,
-};
 
 export default SelectedDatesDisplay;

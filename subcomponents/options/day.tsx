@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import moment from "moment";
 import Selections from "./item/selections";
 
-class Day extends Component {
+interface Props{
+    onChange:(value:string)=>void;
+    year:string;
+    month:string;
+    day:string;
+    headerStyles:object;
+    bodyStyles:object;
+}
+
+class Day extends Component <Props, {}> {
     
     getDayArray(){
         const daysArray=[];
@@ -53,14 +61,5 @@ class Day extends Component {
         return null;
     }
 }
-
-Day.propTypes = {
-    onChange:PropTypes.func.isRequired,
-    year:PropTypes.string.isRequired,
-    month:PropTypes.string.isRequired,
-    day:PropTypes.string.isRequired,
-    headerStyles:PropTypes.object.isRequired,
-    bodyStyles:PropTypes.object.isRequired
-};
 
 export default Day;

@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import Year from "./options/year"; 
 import Month from "./options/month";
 import Day from "./options/day"; 
 import SelectedDatesDisplay from "./selected-dates-display"; 
 
-class Pickers extends Component {  
-	render() {
+interface Props{
+	onChange:(value:string,type:string)=>void;
+	year:string;
+	month:string;
+	day:string;
+	headerStyles:object;
+	bodyStyles:object;
+	containerStyles:object;
+	footerStyles:object;
+}
 
+class Pickers extends Component <Props,{}>{  
+	render() {
 		const {props}=this;
 		const {onChange,containerStyles}=props;
 
@@ -22,16 +31,5 @@ class Pickers extends Component {
 		);
 	}
 }
-
-Pickers.propTypes = {
-	onChange:PropTypes.func.isRequired,
-	year:PropTypes.string.isRequired,
-	month:PropTypes.string.isRequired,
-	day:PropTypes.string.isRequired,
-	headerStyles:PropTypes.object.isRequired,
-	bodyStyles:PropTypes.object.isRequired,
-	containerStyles:PropTypes.object.isRequired,
-	footerStyles:PropTypes.object.isRequired
-};
 
 export default Pickers;

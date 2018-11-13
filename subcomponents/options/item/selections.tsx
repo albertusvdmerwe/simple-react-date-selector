@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-class Selections extends Component {
+interface Props {
+   value: string;
+   onClick:(value:string)=> void;
+}
+
+class Selections extends Component<Props, {}> {
     
     constructor(props){
         super(props);
@@ -25,9 +29,5 @@ class Selections extends Component {
     }
 }
 
-Selections.propTypes = {
-    value:PropTypes.string.isRequired,
-    onClick:PropTypes.func.isRequired,
-};
 
 export default Selections;

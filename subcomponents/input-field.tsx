@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import TextField from "@material-ui/core/TextField";
 import CalendarIcon from "@material-ui/icons/CalendarToday";
 
-class DateInputField extends Component {
+interface Props{
+    placeholder:string;
+    onClick:()=>void;
+    value:string;
+}
+
+class DateInputField extends Component <Props,{}>{
 
     render() {
 
@@ -24,11 +29,5 @@ class DateInputField extends Component {
         );
     }
 }
-
-DateInputField.propTypes = {
-    placeholder:PropTypes.string.isRequired,
-    onClick:PropTypes.func.isRequired,
-    value:PropTypes.string.isRequired,
-};
 
 export default DateInputField;

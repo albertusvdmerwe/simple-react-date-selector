@@ -1,6 +1,7 @@
-export const defaultState={
-    year:"",
-    month:"",
-    day:"",
-    modalVisible:false
+export var defaultState = {
+    year: "",
+    month: "",
+    day: "",
+    modalVisible: false
 };
+//# sourceMappingURL=state.js.map

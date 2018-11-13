@@ -11,7 +11,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import React, { Component } from 'react';
+import React, { Component } from "react";
 var Selections = /** @class */ (function (_super) {
     __extends(Selections, _super);
     function Selections(props) {

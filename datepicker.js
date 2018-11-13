@@ -22,7 +22,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import Pickers from "./subcomponents/pickers";
 import DateInputField from "./subcomponents/input-field";
 import GeneralModal from "./general-modal/general-modal";
@@ -36,6 +36,7 @@ var Datepicker = /** @class */ (function (_super) {
         _this.state = defaultState;
         _this.closeModal = _this.closeModal.bind(_this);
         _this.handleItemSelected = _this.handleItemSelected.bind(_this);
+        _this.handleDateInputFieldClicked = _this.handleDateInputFieldClicked.bind(_this);
         return _this;
     }
     Datepicker.prototype.getSetFullDate = function () {
@@ -53,25 +54,32 @@ var Datepicker = /** @class */ (function (_super) {
         this.setState(defaultState);
     };
     Datepicker.prototype.handleItemSelected = function (value, type) {
-        if (type === 'year') {
+        if (type === "year") {
             this.setState({ year: value }, this.getSetFullDate);
         }
         if (type === "month") {
             this.setState({ month: value }, this.getSetFullDate);
         }
-        if (type === 'day') {
+        if (type === "day") {
             this.setState({ day: value }, this.getSetFullDate);
         }
     };
+    Datepicker.prototype.handleDateInputFieldClicked = function () {
+        this.setState({ modalVisible: true });
+    };
     Datepicker.prototype.render = function () {
-        var _this = this;
         var _a = this.props, placeholder = _a.placeholder, value = _a.value, _b = _a.headerStyles, headerStyles = _b === void 0 ? header : _b, _c = _a.bodyStyles, bodyStyles = _c === void 0 ? body : _c, _d = _a.containerStyles, containerStyles = _d === void 0 ? container : _d, _e = _a.footerStyles, footerStyles = _e === void 0 ? footer : _e;
         var modalVisible = this.state.modalVisible;
         var _f = this, handleItemSelected = _f.handleItemSelected, closeModal = _f.closeModal;
         return (React.createElement("div", { className: "simple-react-date-selector" },
             React.createElement(GeneralModal, { visible: modalVisible, onClick: closeModal },
-                React.createElement(Pickers, __assign({}, this.state, { placeholder: placeholder, value: value, headerStyles: headerStyles, bodyStyles: bodyStyles, containerStyles: containerStyles, footerStyles: footerStyles }, { onChange: handleItemSelected }))),
-            React.createElement(DateInputField, { placeholder: placeholder, onClick: function () { return _this.setState({ modalVisible: true }); }, value: value })));
+                React.createElement(Pickers, __assign({}, this.state, {
+                    bodyStyles: bodyStyles,
+                    containerStyles: containerStyles,
+                    footerStyles: footerStyles,
+                    headerStyles: headerStyles
+                }, { onChange: handleItemSelected }))),
+            React.createElement(DateInputField, { placeholder: placeholder, onClick: this.handleDateInputFieldClicked, value: value })));
     };
     return Datepicker;
 }(Component));

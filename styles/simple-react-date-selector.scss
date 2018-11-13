@@ -5,6 +5,8 @@
 
 .simple-react-date-selector{
 
+    font-size:14px !important;
+
     input[type=text]{
         border:1px solid $text-fields-border-color;
         color:$text-fields-border-color;
@@ -17,15 +19,15 @@
         font-family:"Roboto", "Helvetica", "Arial", sans-serif !important;
         background-color:white;
         width:$date-picker-width;
-        height:320px;
+        height:220px;
         border-radius:15px;
-        margin:80px auto 0;
+        margin:25px auto 0;
         box-sizing:border-box;
         padding-top:15px;
         
         .simple-react-date-selector-scrollables{
             overflow-y:auto;
-            height:280px;
+            height:190px;
             width:$date-picker-width;
             padding:0 15px 15px;
             text-align:center;  

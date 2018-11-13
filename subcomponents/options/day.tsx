@@ -3,7 +3,7 @@ import moment from "moment";
 import Selections from "./item/selections";
 
 interface Props {
-  onChange: (value: string) => void;
+  onChange: (value: string,type: string) => void;
   year: string;
   month: string;
   day: string;
@@ -30,7 +30,7 @@ class Day extends Component<Props, {}> {
 
   handleClick(value: string): void {
     const { onChange } = this.props;
-    onChange(value);
+    onChange(value,'day');
   }
 
   getFullDay(day: number): string {

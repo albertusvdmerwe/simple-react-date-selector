@@ -35,7 +35,7 @@ var Month = /** @class */ (function (_super) {
     };
     Month.prototype.handleOnClick = function (value) {
         var onChange = this.props.onChange;
-        onChange(value);
+        onChange(value, 'month');
     };
     Month.prototype.render = function () {
         var _this = this;

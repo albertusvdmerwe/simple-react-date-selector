@@ -5,7 +5,7 @@ import Selections from "./item/selections";
 const currentYear = moment().year();
 
 interface Props {
-  onChange: (value: string) => void;
+  onChange: (value: string,type: string) => void;
   year: string;
   month: string;
   day: string;
@@ -31,7 +31,7 @@ class Year extends Component<Props, {}> {
 
   handleOnClick(value: string): void {
     const { onChange } = this.props;
-    onChange(value);
+    onChange(value,'year');
   }
 
   getYearAsString(year: number): string {

@@ -31,7 +31,7 @@ var Year = /** @class */ (function (_super) {
     };
     Year.prototype.handleOnClick = function (value) {
         var onChange = this.props.onChange;
-        onChange(value);
+        onChange(value, 'year');
     };
     Year.prototype.getYearAsString = function (year) {
         return year.toString();

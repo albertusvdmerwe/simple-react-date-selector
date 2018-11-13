@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Selections from "./item/selections";
 
 interface Props {
-  onChange: (value: string) => void;
+  onChange: (value: string,type: string) => void;
   year: string;
   month: string;
   day: string;
@@ -36,7 +36,7 @@ class Month extends Component<Props, {}> {
 
   handleOnClick(value: string): void {
     const { onChange } = this.props;
-    onChange(value);
+    onChange(value,'month');
   }
 
   render() {

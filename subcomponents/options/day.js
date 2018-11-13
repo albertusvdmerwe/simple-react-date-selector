@@ -32,7 +32,7 @@ var Day = /** @class */ (function (_super) {
     };
     Day.prototype.handleClick = function (value) {
         var onChange = this.props.onChange;
-        onChange(value);
+        onChange(value, 'day');
     };
     Day.prototype.getFullDay = function (day) {
         if (day < 10) {

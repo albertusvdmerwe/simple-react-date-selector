@@ -1,26 +1,36 @@
 import React, { Component } from "react";
 
 interface Props {
-    visible: boolean;
-    children: JSX.Element;
-    onClick?: ()=> void;
+  visible: boolean;
+  children: JSX.Element;
+  onClick?: () => void;
 }
 
 export default class GeneralModal extends Component<Props, {}> {
-    render() {
+  constructor(props: Props) {
+    super(props);
+    this.handleOnClick = this.handleOnClick.bind(this);
+  }
 
-        const {visible, children, onClick=null} = this.props;
-
-        const additionalClass = visible ? "modal-visible" : "";
-
-        return (
-            <div className={`general-modal ${additionalClass}`} onClick={() => {
-                if (typeof onClick === "function") {
-                    onClick();
-                }
-            }}>
-                {children}
-            </div>
-        );
+  handleOnClick() {
+    const { onClick = null } = this.props;
+    if (typeof onClick === "function") {
+      onClick();
     }
+  }
+
+  render() {
+    const { visible, children } = this.props;
+
+    const additionalClass: string = visible ? "modal-visible" : "";
+
+    return (
+      <div
+        className={`general-modal ${additionalClass}`}
+        onClick={this.handleOnClick}
+      >
+        {children}
+      </div>
+    );
+  }
 }

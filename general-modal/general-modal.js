@@ -14,17 +14,21 @@ var __extends = (this && this.__extends) || (function () {
 import React, { Component } from "react";
 var GeneralModal = /** @class */ (function (_super) {
     __extends(GeneralModal, _super);
-    function GeneralModal() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function GeneralModal(props) {
+        var _this = _super.call(this, props) || this;
+        _this.handleOnClick = _this.handleOnClick.bind(_this);
+        return _this;
     }
+    GeneralModal.prototype.handleOnClick = function () {
+        var _a = this.props.onClick, onClick = _a === void 0 ? null : _a;
+        if (typeof onClick === "function") {
+            onClick();
+        }
+    };
     GeneralModal.prototype.render = function () {
-        var _a = this.props, visible = _a.visible, children = _a.children, _b = _a.onClick, onClick = _b === void 0 ? null : _b;
+        var _a = this.props, visible = _a.visible, children = _a.children;
         var additionalClass = visible ? "modal-visible" : "";
-        return (React.createElement("div", { className: "general-modal " + additionalClass, onClick: function () {
-                if (typeof onClick === "function") {
-                    onClick();
-                }
-            } }, children));
+        return (React.createElement("div", { className: "general-modal " + additionalClass, onClick: this.handleOnClick }, children));
     };
     return GeneralModal;
 }(Component));

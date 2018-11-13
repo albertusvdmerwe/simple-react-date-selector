@@ -11,12 +11,14 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import Selections from "./item/selections";
 var Month = /** @class */ (function (_super) {
     __extends(Month, _super);
-    function Month() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function Month(props) {
+        var _this = _super.call(this, props) || this;
+        _this.handleOnClick = _this.handleOnClick.bind(_this);
+        return _this;
     }
     Month.prototype.getMonthArray = function () {
         var monthItems = [];
@@ -25,18 +27,25 @@ var Month = /** @class */ (function (_super) {
         }
         return monthItems;
     };
+    Month.prototype.getMonthAsString = function (month) {
+        if (month < 10) {
+            return "0" + month.toString();
+        }
+        return month.toString();
+    };
+    Month.prototype.handleOnClick = function (value) {
+        var onChange = this.props.onChange;
+        onChange(value);
+    };
     Month.prototype.render = function () {
-        var _a = this.props, onChange = _a.onChange, year = _a.year, month = _a.month, day = _a.day, headerStyles = _a.headerStyles, bodyStyles = _a.bodyStyles;
+        var _this = this;
+        var _a = this.props, year = _a.year, month = _a.month, day = _a.day, headerStyles = _a.headerStyles, bodyStyles = _a.bodyStyles;
         if (year && !month && !day) {
             return (React.createElement("div", { className: "simple-react-date-selector-scrollables" },
                 React.createElement("div", { className: "simple-react-date-selector-selection-heading", style: headerStyles }, "Month"),
-                React.createElement("div", { style: bodyStyles }, this.getMonthArray()
-                    .map(function (month) {
-                    month = String(month);
-                    if (month.length === 1) {
-                        month = "0" + month;
-                    }
-                    return React.createElement(Selections, { key: "months-selector-" + month, value: month, onClick: function (value) { return onChange(value); } });
+                React.createElement("div", { style: bodyStyles }, this.getMonthArray().map(function (monthValue) {
+                    var monthAsString = _this.getMonthAsString(monthValue);
+                    return (React.createElement(Selections, { key: "months-selector-" + monthAsString, value: monthAsString, onClick: _this.handleOnClick }));
                 }))));
         }
         return null;

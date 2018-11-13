@@ -12,7 +12,7 @@ export default class GeneralModal extends Component<Props, {}> {
     this.handleOnClick = this.handleOnClick.bind(this);
   }
 
-  handleOnClick(event) {
+  handleOnClick(event): void {
     event.stopPropagation();
     const { onClick = null } = this.props;
     if (typeof onClick === "function") {

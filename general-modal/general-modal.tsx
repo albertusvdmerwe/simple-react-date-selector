@@ -12,7 +12,8 @@ export default class GeneralModal extends Component<Props, {}> {
     this.handleOnClick = this.handleOnClick.bind(this);
   }
 
-  handleOnClick() {
+  handleOnClick(event) {
+    event.stopPropagation();
     const { onClick = null } = this.props;
     if (typeof onClick === "function") {
       onClick();

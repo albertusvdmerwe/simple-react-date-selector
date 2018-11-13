@@ -19,7 +19,8 @@ var GeneralModal = /** @class */ (function (_super) {
         _this.handleOnClick = _this.handleOnClick.bind(_this);
         return _this;
     }
-    GeneralModal.prototype.handleOnClick = function () {
+    GeneralModal.prototype.handleOnClick = function (event) {
+        event.stopPropagation();
         var _a = this.props.onClick, onClick = _a === void 0 ? null : _a;
         if (typeof onClick === "function") {
             onClick();

@@ -81,7 +81,7 @@ class Datepicker extends Component <Props,State>{
         const {handleItemSelected,closeModal}=this;
 
         return(
-            <div>
+            <div className="simple-react-date-selector">
                 <GeneralModal visible={modalVisible} onClick={closeModal}> 
                     <Pickers 
                         {...this.state} 

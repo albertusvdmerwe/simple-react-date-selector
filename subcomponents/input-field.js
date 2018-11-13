@@ -11,19 +11,25 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 import React, { Component } from 'react';
-import TextField from "@material-ui/core/TextField";
-import CalendarIcon from "@material-ui/icons/CalendarToday";
 var DateInputField = /** @class */ (function (_super) {
     __extends(DateInputField, _super);
     function DateInputField() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     DateInputField.prototype.render = function () {
-        var _a = this.props, placeholder = _a.placeholder, onClick = _a.onClick, value = _a.value;
-        return (React.createElement(TextField, { label: placeholder, value: value, type: "text", margin: "normal", variant: "outlined", disabled: true, InputProps: {
-                endAdornment: React.createElement(CalendarIcon, { style: { cursor: 'pointer' }, onClick: onClick })
-            } }));
+        return (React.createElement("input", __assign({ type: "text" }, this.props, { readOnly: true })));
     };
     return DateInputField;
 }(Component));

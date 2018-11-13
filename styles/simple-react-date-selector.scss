@@ -1,62 +1,76 @@
 @import '../general-modal/general-modal';
 @import "./vars";
 
-.simple-react-date-selector-datepickers
-{
-    font-family:"Roboto", "Helvetica", "Arial", sans-serif !important;
-    background-color:white;
-    width:$date-picker-width;
-    height:320px;
-    border-radius:15px;
-    margin:80px auto 0;
-    box-sizing:border-box;
-    padding-top:15px;
-    
-    .simple-react-date-selector-scrollables{
-        overflow-y:auto;
-        height:280px;
-        width:$date-picker-width;
-        padding:0 15px 15px;
-        text-align:center;  
 
-        .simple-react-date-selector-selection-heading{
-           font-size:1.5em;
-           border-bottom:1px solid black;
-           padding:15px;
-           background-color:white;
-           position:sticky;
-           top:0;
-        }
-    
-        .simple-react-date-selector-selections{
-            cursor:pointer;
-            margin:5px 0;
-            line-height: 3;
-            
-            &:hover{
-                color:green; 
-            }
-        }
+
+.simple-react-date-selector{
+
+    input[type=text]{
+        border:1px solid $text-fields-border-color;
+        color:$text-fields-border-color;
+        padding:15px;
+        cursor:pointer;
     }
 
-    .simple-react-date-selector-selections-made-container{
-        margin:32px 0 0;
-        width:$date-picker-width;
-        border-radius:15px;
+    .simple-react-date-selector-datepickers
+    {
+        font-family:"Roboto", "Helvetica", "Arial", sans-serif !important;
         background-color:white;
-
-        .simple-react-date-selector-selections-made{
-            width:90%;
-            margin:0 auto;
-            border-collapse: collapse !important;
-            height: 50px;
+        width:$date-picker-width;
+        height:320px;
+        border-radius:15px;
+        margin:80px auto 0;
+        box-sizing:border-box;
+        padding-top:15px;
         
-            td{
-                width:33%;
-                padding:10px;
-                border-width:0 !important;
-                text-align: center;
+        .simple-react-date-selector-scrollables{
+            overflow-y:auto;
+            height:280px;
+            width:$date-picker-width;
+            padding:0 15px 15px;
+            text-align:center;  
+
+            .simple-react-date-selector-selection-heading{
+            font-size:1.5em;
+            border-bottom:1px solid black;
+            padding:15px;
+            background-color:white;
+            position:sticky;
+            top:0;
+            }
+        
+            .simple-react-date-selector-selections{
+                cursor:pointer;
+                margin:5px 0;
+                line-height: 3;
+                
+                &:hover{
+                    color:green; 
+                }
+            }
+        }
+
+        .simple-react-date-selector-selections-made-container{
+            margin:32px 0 0;
+            width:$date-picker-width;
+            border-radius:15px;
+            background-color:white;
+
+            .simple-react-date-selector-selections-made{
+                width:90%;
+                margin:0 auto;
+                border-collapse: collapse !important;
+                height: 50px;
+            
+                td{
+                    width:33%;
+                    padding:10px;
+                    border-width:0 !important;
+                    text-align: center;
+                }
             }
         }
     }
+
+
 }

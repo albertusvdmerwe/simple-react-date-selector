@@ -47,7 +47,7 @@ import React,{Component} from "react";
 
 import Datepicker from 'simple-react-date-selector';
 
-export default class MyComponent{
+export default class MyComponent extends Component{
     constructor(props){
         super(props);
         this.state={Date:""};

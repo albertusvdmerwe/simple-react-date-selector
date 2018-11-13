@@ -22,14 +22,14 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import React, { Component } from 'react';
+import React, { Component } from "react";
 var DateInputField = /** @class */ (function (_super) {
     __extends(DateInputField, _super);
     function DateInputField() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     DateInputField.prototype.render = function () {
-        return (React.createElement("input", __assign({ type: "text" }, this.props, { readOnly: true })));
+        return React.createElement("input", __assign({ type: "text" }, this.props, { readOnly: true }));
     };
     return DateInputField;
 }(Component));

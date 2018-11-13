@@ -4,10 +4,17 @@ A simple react date picker component.
 
 **Preview:**
 
-![Year](screenshots/year.png)
-![Month](screenshots/month.png)
-![Day](screenshots/day.png)
-![Selected](screenshots/selected.png)
+![selection](screenshots/selected.png)
+
+*Default styling:*
+![year](screenshots/normal/year.png)
+![month](screenshots/normal/month.png)
+![day](screenshots/normal/day.png)
+
+*Custom styling:*
+![year](screenshots/custom/year.png)
+![month](screenshots/custom/month.png)
+![day](screenshots/custom/day.png)
 
 **Props:**
 
@@ -50,15 +57,50 @@ import Datepicker from 'simple-react-date-selector';
 export default class MyComponent extends Component{
     constructor(props){
         super(props);
-        this.state={Date:""};
+        this.state={DateFrom:"",DateTo:""};
     }
+
+    /*
+        The first datepicker simply has the default styling
+        The second datepicker component has been given custom styling
+    */
 
     render(){
         return (
                 <Datepicker  
-                    onChange={date=>{this.setState({Date:date})}}
-                    placeholder={'Date'}
-                    value={this.state.Date}
+                    onChange={date=>{this.setState({DateFrom:date})}}
+                    placeholder={'From'}
+                    value={this.state.DateFrom}
+                />
+                <Datepicker  
+                    onChange={date=>{this.setState({DateTo:date})}}
+                    placeholder={'To'}
+                    value={this.state.DateTo}
+                    headerStyles={{
+                        backgroundColor:'#263238',
+                        color:'white',
+                        borderBottomWidth:0
+                    }}
+                    containerStyles={{
+                        borderRadius:0,
+                        backgroundColor:'#263238',
+                        borderColor:'black',
+                        borderWidth:1,
+                        borderStyle:'solid'
+                    }}
+                    bodyStyles={{
+                        borderRadius:10,
+                        backgroundColor:'white',
+                        borderWidth:1,
+                        borderColor:'#263238',
+                        borderStyle:'solid'
+                    }}
+                    footerStyles={{
+                        borderRadius:0,
+                        borderWidth:1,
+                        borderColor:'#263238',
+                        borderStyle:'solid'
+                    }}
                 />
         )
 

@@ -21,6 +21,8 @@ A simple react date picker component.
 |Prop|Required|Type|Description|
 |---------|---------|---------|---------|
 |onChange|true|function|The callback function that should be executed when the complete date is chosen. The argument is the date value that is returned.|
+|onOpened|false|function|The callback function that should be executed as soon as the datepicker becomes visible|
+|onClosed|false|function|The callback function that should be executed as soon as the datepicker is hidden|
 |placeholder|true|string|The field label|
 |value|true|string|The current value that should be displayed in the date field.|
 |headerStyles|false|style object|Additional styles that should be added to the header - The day, month and year headings|

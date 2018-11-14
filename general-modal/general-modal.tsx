@@ -4,6 +4,8 @@ interface Props {
   visible: boolean;
   children: JSX.Element;
   onClick?: () => void;
+  onOpened: () => void;
+  onClosed: () => void;
 }
 
 export default class GeneralModal extends Component<Props, {}> {
@@ -20,10 +22,22 @@ export default class GeneralModal extends Component<Props, {}> {
     }
   }
 
+  handleVisibilityEventListeners(): void {
+    const { visible, onOpened, onClosed } = this.props;
+
+    if (visible === true && typeof onOpened === "function") {
+      onOpened();
+    }
+
+    if (visible === false && typeof onClosed === "function") {
+      onClosed();
+    }
+  }
+
   render() {
     const { visible, children } = this.props;
-
     const additionalClass: string = visible ? "modal-visible" : "";
+    this.handleVisibilityEventListeners();
 
     return (
       <div

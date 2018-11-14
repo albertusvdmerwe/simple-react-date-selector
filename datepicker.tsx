@@ -8,6 +8,8 @@ const { header, body, container, footer } = stylesObjects;
 
 interface Props {
   onChange: (fullDate: string) => void;
+  onOpened?:()=>void;
+  onClosed?:()=>void;
   placeholder: string;
   value: string;
   headerStyles?: object;
@@ -75,7 +77,9 @@ class Datepicker extends Component<Props, State> {
       headerStyles = header,
       bodyStyles = body,
       containerStyles = container,
-      footerStyles = footer
+      footerStyles = footer,
+      onOpened=null,
+      onClosed=null,
     } = this.props;
 
     const { modalVisible } = this.state;
@@ -83,7 +87,7 @@ class Datepicker extends Component<Props, State> {
 
     return (
       <div className="simple-react-date-selector">
-        <GeneralModal visible={modalVisible} onClick={closeModal}>
+        <GeneralModal visible={modalVisible} onClick={closeModal} onOpened={onOpened} onClosed={onClosed}>
           <Pickers
             {...this.state}
             {...{

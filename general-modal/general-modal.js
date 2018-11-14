@@ -26,9 +26,19 @@ var GeneralModal = /** @class */ (function (_super) {
             onClick();
         }
     };
+    GeneralModal.prototype.handleVisibilityEventListeners = function () {
+        var _a = this.props, visible = _a.visible, onOpened = _a.onOpened, onClosed = _a.onClosed;
+        if (visible === true && typeof onOpened === "function") {
+            onOpened();
+        }
+        if (visible === false && typeof onClosed === "function") {
+            onClosed();
+        }
+    };
     GeneralModal.prototype.render = function () {
         var _a = this.props, visible = _a.visible, children = _a.children;
         var additionalClass = visible ? "modal-visible" : "";
+        this.handleVisibilityEventListeners();
         return (React.createElement("div", { className: "general-modal " + additionalClass, onClick: this.handleOnClick }, children));
     };
     return GeneralModal;

@@ -39,7 +39,18 @@ var Datepicker = /** @class */ (function (_super) {
         _this.handleDateInputFieldClicked = _this.handleDateInputFieldClicked.bind(_this);
         return _this;
     }
+    Datepicker.prototype.checkAndInvokeListeners = function () {
+        var _a = this.props, _b = _a.onClosed, onClosed = _b === void 0 ? null : _b, _c = _a.onOpened, onOpened = _c === void 0 ? null : _c;
+        var modalVisible = this.state.modalVisible;
+        if (typeof onClosed === "function" && modalVisible === false) {
+            onClosed();
+        }
+        if (typeof onOpened === "function" && modalVisible === true) {
+            onOpened();
+        }
+    };
     Datepicker.prototype.getSetFullDate = function () {
+        var _this = this;
         var fullDate = "";
         var _a = this.state, year = _a.year, month = _a.month, day = _a.day;
         var onChange = this.props.onChange;
@@ -47,11 +58,14 @@ var Datepicker = /** @class */ (function (_super) {
             fullDate = year + "-" + month + "-" + day;
         }
         if (fullDate !== "") {
-            this.setState(defaultState, function () { return onChange(fullDate); });
+            this.setState(defaultState, function () {
+                onChange(fullDate);
+                _this.checkAndInvokeListeners();
+            });
         }
     };
     Datepicker.prototype.closeModal = function () {
-        this.setState(defaultState);
+        this.setState(defaultState, this.checkAndInvokeListeners);
     };
     Datepicker.prototype.handleItemSelected = function (value, type) {
         if (type === "year") {
@@ -65,14 +79,14 @@ var Datepicker = /** @class */ (function (_super) {
         }
     };
     Datepicker.prototype.handleDateInputFieldClicked = function () {
-        this.setState({ modalVisible: true });
+        this.setState({ modalVisible: true }, this.checkAndInvokeListeners);
     };
     Datepicker.prototype.render = function () {
-        var _a = this.props, placeholder = _a.placeholder, value = _a.value, _b = _a.headerStyles, headerStyles = _b === void 0 ? header : _b, _c = _a.bodyStyles, bodyStyles = _c === void 0 ? body : _c, _d = _a.containerStyles, containerStyles = _d === void 0 ? container : _d, _e = _a.footerStyles, footerStyles = _e === void 0 ? footer : _e, _f = _a.onOpened, onOpened = _f === void 0 ? null : _f, _g = _a.onClosed, onClosed = _g === void 0 ? null : _g;
+        var _a = this.props, placeholder = _a.placeholder, value = _a.value, _b = _a.headerStyles, headerStyles = _b === void 0 ? header : _b, _c = _a.bodyStyles, bodyStyles = _c === void 0 ? body : _c, _d = _a.containerStyles, containerStyles = _d === void 0 ? container : _d, _e = _a.footerStyles, footerStyles = _e === void 0 ? footer : _e;
         var modalVisible = this.state.modalVisible;
-        var _h = this, handleItemSelected = _h.handleItemSelected, closeModal = _h.closeModal;
+        var _f = this, handleItemSelected = _f.handleItemSelected, closeModal = _f.closeModal;
         return (React.createElement("div", { className: "simple-react-date-selector" },
-            React.createElement(GeneralModal, { visible: modalVisible, onClick: closeModal, onOpened: onOpened, onClosed: onClosed },
+            React.createElement(GeneralModal, { visible: modalVisible, onClick: closeModal },
                 React.createElement(Pickers, __assign({}, this.state, {
                     bodyStyles: bodyStyles,
                     containerStyles: containerStyles,

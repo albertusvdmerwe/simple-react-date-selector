@@ -8,8 +8,8 @@ const { header, body, container, footer } = stylesObjects;
 
 interface Props {
   onChange: (fullDate: string) => void;
-  onOpened?:()=>void;
-  onClosed?:()=>void;
+  onOpened?: () => void;
+  onClosed?: () => void;
   placeholder: string;
   value: string;
   headerStyles?: object;
@@ -26,12 +26,27 @@ interface State {
 }
 
 class Datepicker extends Component<Props, State> {
-  constructor(props:Props) {
+  constructor(props: Props) {
     super(props);
     this.state = defaultState;
     this.closeModal = this.closeModal.bind(this);
     this.handleItemSelected = this.handleItemSelected.bind(this);
-    this.handleDateInputFieldClicked=this.handleDateInputFieldClicked.bind(this);
+    this.handleDateInputFieldClicked = this.handleDateInputFieldClicked.bind(
+      this
+    );
+  }
+
+  checkAndInvokeListeners(): void {
+    const { onClosed = null, onOpened = null } = this.props;
+    const { modalVisible } = this.state;
+
+    if (typeof onClosed === "function" && modalVisible === false) {
+      onClosed();
+    }
+
+    if (typeof onOpened === "function" && modalVisible === true) {
+      onOpened();
+    }
   }
 
   getSetFullDate(): void {
@@ -44,12 +59,15 @@ class Datepicker extends Component<Props, State> {
     }
 
     if (fullDate !== "") {
-      this.setState(defaultState, () => onChange(fullDate));
+      this.setState(defaultState, () => {
+        onChange(fullDate);
+        this.checkAndInvokeListeners();
+      });
     }
   }
 
   closeModal(): void {
-    this.setState(defaultState);
+    this.setState(defaultState, this.checkAndInvokeListeners);
   }
 
   handleItemSelected(value: string, type: string): void {
@@ -66,8 +84,8 @@ class Datepicker extends Component<Props, State> {
     }
   }
 
-  handleDateInputFieldClicked():void{
-    this.setState({ modalVisible: true });
+  handleDateInputFieldClicked(): void {
+    this.setState({ modalVisible: true }, this.checkAndInvokeListeners);
   }
 
   render() {
@@ -77,9 +95,7 @@ class Datepicker extends Component<Props, State> {
       headerStyles = header,
       bodyStyles = body,
       containerStyles = container,
-      footerStyles = footer,
-      onOpened=null,
-      onClosed=null,
+      footerStyles = footer
     } = this.props;
 
     const { modalVisible } = this.state;
@@ -87,7 +103,7 @@ class Datepicker extends Component<Props, State> {
 
     return (
       <div className="simple-react-date-selector">
-        <GeneralModal visible={modalVisible} onClick={closeModal} onOpened={onOpened} onClosed={onClosed}>
+        <GeneralModal visible={modalVisible} onClick={closeModal}>
           <Pickers
             {...this.state}
             {...{

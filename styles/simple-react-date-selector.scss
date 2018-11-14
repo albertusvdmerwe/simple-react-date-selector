@@ -18,27 +18,40 @@
     {
         font-family:"Roboto", "Helvetica", "Arial", sans-serif !important;
         background-color:white;
-        width:$date-picker-width;
-        height:220px;
+        width:$date-picker-width-desktop;
+        height:$date-picker-height-desktop;
+        margin: $picker-top-position-desktop auto 0;
+
+        @media screen and (max-height:$mobile-max-height) {
+            width:$date-picker-width-mobile !important;
+            height:$date-picker-height-mobile !important;
+            margin-top:$picker-top-position-mobile !important;
+        }
+
         border-radius:15px;
-        margin:25px auto 0;
         box-sizing:border-box;
         padding-top:15px;
         
         .simple-react-date-selector-scrollables{
             overflow-y:auto;
-            height:190px;
-            width:$date-picker-width;
+            height:$date-picker-height-desktop-scrollables;
+            width:$date-picker-width-desktop;
+
+            @media screen and (max-height:$mobile-max-height) {
+                height:$date-picker-height-mobile-scrollables !important;
+                width:$date-picker-width-mobile !important;
+            }
+
             padding:0 15px 15px;
             text-align:center;  
 
             .simple-react-date-selector-selection-heading{
-            font-size:1.5em;
-            border-bottom:1px solid black;
-            padding:15px;
-            background-color:white;
-            position:sticky;
-            top:0;
+                font-size:1.5em;
+                border-bottom:1px solid black;
+                padding:15px;
+                background-color:white;
+                position:sticky;
+                top:0;
             }
         
             .simple-react-date-selector-selections{
@@ -54,7 +67,12 @@
 
         .simple-react-date-selector-selections-made-container{
             margin:32px 0 0;
-            width:$date-picker-width;
+            width:$date-picker-width-desktop;
+
+            @media screen and (max-height:$mobile-max-height) {
+                width:$date-picker-width-mobile !important;
+            }
+
             border-radius:15px;
             background-color:white;
 
@@ -73,6 +91,4 @@
             }
         }
     }
-
-
 }

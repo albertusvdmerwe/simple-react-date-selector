@@ -8,7 +8,8 @@
     "url": "git+https://github.com/albertusvdmerwe/simple-react-date-selector.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "webpack-dev-server"
   },
   "author": "albert <albertusvdmerwe@gmail.com>",
   "license": "ISC",
@@ -34,6 +35,9 @@
     "tslint-config-prettier": "1.16.0",
     "tslint-react": "3.6.0",
     "typescript": "3.1.6",
-    "vinyl-source-stream": "2.0.0"
+    "vinyl-source-stream": "2.0.0",
+    "webpack": "4.25.1",
+    "webpack-cli": "3.1.2",
+    "webpack-dev-server": "3.1.10"
   }
 }

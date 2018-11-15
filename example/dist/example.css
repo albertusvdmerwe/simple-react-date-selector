@@ -1,0 +1,83 @@
+/*
+    You must reference the file in your node_modules directory for example:
+    @import "./node_modules/simple-react-date-selector/styles/simple-react-date-selector";
+*/
+.general-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  visibility: hidden;
+  background-color: transparent;
+  transition-property: all;
+  transition-duration: 100ms;
+  transition-timing-function: ease-in-out; }
+  .general-modal.modal-visible {
+    background-color: rgba(0, 0, 0, 0.8);
+    visibility: visible; }
+
+.simple-react-date-selector {
+  font-size: 14px !important; }
+  .simple-react-date-selector input[type=text] {
+    border: 1px solid #263238;
+    color: #263238;
+    padding: 15px;
+    cursor: pointer; }
+  .simple-react-date-selector .simple-react-date-selector-datepickers {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+    background-color: white;
+    width: 180px;
+    height: 220px;
+    margin: 25px auto 0;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding-top: 15px; }
+    @media screen and (max-height: 320px) {
+      .simple-react-date-selector .simple-react-date-selector-datepickers {
+        width: 130px !important;
+        height: 170px !important;
+        margin-top: 10px !important; } }
+    .simple-react-date-selector .simple-react-date-selector-datepickers .simple-react-date-selector-scrollables {
+      box-sizing: border-box;
+      overflow-y: auto;
+      height: 190px;
+      width: 180px;
+      padding: 0 15px 15px;
+      text-align: center; }
+      @media screen and (max-height: 320px) {
+        .simple-react-date-selector .simple-react-date-selector-datepickers .simple-react-date-selector-scrollables {
+          height: 140px !important;
+          width: 130px !important; } }
+      .simple-react-date-selector .simple-react-date-selector-datepickers .simple-react-date-selector-scrollables .simple-react-date-selector-selection-heading {
+        font-size: 1.5em;
+        border-bottom: 1px solid black;
+        padding: 15px;
+        background-color: white;
+        position: sticky;
+        top: 0; }
+      .simple-react-date-selector .simple-react-date-selector-datepickers .simple-react-date-selector-scrollables .simple-react-date-selector-selections {
+        cursor: pointer;
+        margin: 5px 0;
+        line-height: 3; }
+        .simple-react-date-selector .simple-react-date-selector-datepickers .simple-react-date-selector-scrollables .simple-react-date-selector-selections:hover {
+          color: green; }
+    .simple-react-date-selector .simple-react-date-selector-datepickers .simple-react-date-selector-selections-made-container {
+      margin: 32px 0 0;
+      width: 180px;
+      border-radius: 15px;
+      background-color: white; }
+      @media screen and (max-height: 320px) {
+        .simple-react-date-selector .simple-react-date-selector-datepickers .simple-react-date-selector-selections-made-container {
+          width: 130px !important; } }
+      .simple-react-date-selector .simple-react-date-selector-datepickers .simple-react-date-selector-selections-made-container .simple-react-date-selector-selections-made {
+        width: 90%;
+        margin: 0 auto;
+        border-collapse: collapse !important;
+        height: 50px; }
+        .simple-react-date-selector .simple-react-date-selector-datepickers .simple-react-date-selector-selections-made-container .simple-react-date-selector-selections-made td {
+          width: 33%;
+          padding: 10px;
+          border-width: 0 !important;
+          text-align: center; }

@@ -13,7 +13,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 import React, { Component } from 'react';
 import ReactDOM from "react-dom";
-import Datepicker from "../datepicker";
+import Datepicker from "../../datepicker";
 var ExampleComponent = /** @class */ (function (_super) {
     __extends(ExampleComponent, _super);
     function ExampleComponent(props) {

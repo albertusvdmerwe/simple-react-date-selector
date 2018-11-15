@@ -1,16 +1,16 @@
 import React,{Component} from 'react';
 import ReactDOM from "react-dom";
-import Datepicker from "../datepicker"; 
+import Datepicker from "../../datepicker"; 
 
 /*Yours should be:
 import Datepicker from 'simple-react-date-selector';
 "*/
 
 interface State{
-  value: string; 
+  value: string;  
 }
 
-class ExampleComponent extends Component<{},State>{
+class ExampleComponent extends Component<{},State>{ 
     constructor(props)
     {
       super(props);

@@ -9,7 +9,7 @@ const streamify = require('gulp-streamify');
 
 gulp.task('transpile_js',cb=>{
     browserify({
-        entries: './example/example.js',
+        entries: './src/example/example.js',
         debug: true
     })
         .transform(babelify)
@@ -17,20 +17,20 @@ gulp.task('transpile_js',cb=>{
         .pipe(source('example.js'))
         .pipe(streamify(uglify()))
         .pipe(rename('example.min.js'))
-        .pipe(gulp.dest('./example/dist'));
+        .pipe(gulp.dest('./src/example/dist'));
     cb();
 });
 
 
 gulp.task('transpile_styles',cb=>{
-    gulp.src('./example/example.scss')
+    gulp.src('./src/example/example.scss')
     .pipe(sass())
     .pipe(rename('example.css'))
-    .pipe(gulp.dest('./example/dist'));
+    .pipe(gulp.dest('./src/example/dist'));
     cb();
 });
 
 gulp.task('watcher',()=>{
-    gulp.watch('./example/example.scss',['transpile_styles']);
-    gulp.watch('./example/example.js',['transpile_js']);
+    gulp.watch('./src/example/example.scss',['transpile_styles']);
+    gulp.watch('./src/example/example.js',['transpile_js']);
 });

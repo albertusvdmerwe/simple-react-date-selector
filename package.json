@@ -1,6 +1,6 @@
 {
   "name": "simple-react-date-selector",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A simple date picker for ReactJS",
   "main": "index.js",
   "repository": {

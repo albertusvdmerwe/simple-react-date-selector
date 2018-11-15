@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Pickers from "./subcomponents/pickers";
 import DateInputField from "./subcomponents/input-field";
 import GeneralModal from "./general-modal/general-modal";
+import {deepClone} from "./helpers/objects.helpers";
 import { stylesObjects } from "./styles/styles-objects";
 import { defaultState } from "./state";
 const { header, body, container, footer } = stylesObjects;
@@ -16,6 +17,7 @@ interface Props {
   bodyStyles?: object;
   containerStyles?: object;
   footerStyles?: object;
+  visible?:boolean;
 }
 
 interface State {
@@ -31,9 +33,7 @@ class Datepicker extends Component<Props, State> {
     this.state = defaultState;
     this.closeModal = this.closeModal.bind(this);
     this.handleItemSelected = this.handleItemSelected.bind(this);
-    this.handleDateInputFieldClicked = this.handleDateInputFieldClicked.bind(
-      this
-    );
+    this.handleDateInputFieldClicked = this.handleDateInputFieldClicked.bind(this);
   }
 
   checkAndInvokeListeners(): void {
@@ -70,6 +70,11 @@ class Datepicker extends Component<Props, State> {
     this.setState(defaultState, this.checkAndInvokeListeners);
   }
 
+  showModal():void{
+    const newState=deepClone(defaultState);
+    newState.modalVisible=true;
+  }
+
   handleItemSelected(value: string, type: string): void {
     if (type === "year") {
       this.setState({ year: value }, this.getSetFullDate);
@@ -87,6 +92,18 @@ class Datepicker extends Component<Props, State> {
   handleDateInputFieldClicked(): void {
     this.setState({ modalVisible: true }, this.checkAndInvokeListeners);
   }
+
+  componentDidMount() {
+
+    /*Check if the developer set it to be visible explicitly.*/
+
+    const {visible=null}=this.props;
+    if(typeof visible==="boolean")
+    {
+      
+    }
+  }
+  
 
   render() {
     const {

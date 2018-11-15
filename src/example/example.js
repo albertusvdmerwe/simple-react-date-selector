@@ -19,7 +19,8 @@ var ExampleComponent = /** @class */ (function (_super) {
     function ExampleComponent(props) {
         var _this = _super.call(this, props) || this;
         _this.state = {
-            value: ""
+            value: "",
+            visible: false
         };
         /*reset this keyword to be this class - callbacks change the this keyword, change it back*/
         _this.handleChange = _this.handleChange.bind(_this);
@@ -29,9 +30,19 @@ var ExampleComponent = /** @class */ (function (_super) {
         /*value is the date as a string*/
         this.setState({ value: value });
     };
+    ExampleComponent.prototype.componentDidMount = function () {
+        /*
+      
+        toggle between visible and not every 5 seconds (just an example of this props in action)
+        */
+        var _this = this;
+        window.setInterval(function () {
+            _this.setState({ visible: (_this.state.visible) ? false : true });
+        }, 5000);
+    };
     ExampleComponent.prototype.render = function () {
-        var value = this.state.value;
-        return (React.createElement(Datepicker, { onChange: this.handleChange, value: value, placeholder: "Select a date" }));
+        var _a = this.state, value = _a.value, visible = _a.visible;
+        return (React.createElement(Datepicker, { onChange: this.handleChange, value: value, placeholder: "Select a date", visible: visible }));
     };
     return ExampleComponent;
 }(Component));

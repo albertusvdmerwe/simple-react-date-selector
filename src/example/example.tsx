@@ -8,19 +8,21 @@ import Datepicker from 'simple-react-date-selector';
 
 interface State{
   value: string;  
+  visible:boolean;
 }
 
-class ExampleComponent extends Component<{},State>{ 
+class ExampleComponent extends Component<{},State>{  
     constructor(props)
     {
       super(props);
       this.state={
-        value:""
+        value:"",
+        visible:false
       }
 
       /*reset this keyword to be this class - callbacks change the this keyword, change it back*/
 
-      this.handleChange=this.handleChange.bind(this);
+      this.handleChange=this.handleChange.bind(this); 
     }
  
     handleChange(value:string) :void
@@ -29,16 +31,29 @@ class ExampleComponent extends Component<{},State>{
       
       this.setState({value});
     }
+
+    componentDidMount(){
+
+        /*
+      
+        toggle between visible and not every 5 seconds (just an example of this props in action)
+        */
+
+        window.setInterval(()=>{
+          this.setState({visible:(this.state.visible)?false:true});   
+        },5000);
+    }
+
     
 
     render(){
 
-      const {value}=this.state; 
+      const {value,visible}=this.state; 
 
       return (
-        <Datepicker onChange={this.handleChange} value={value} placeholder="Select a date" />
+        <Datepicker onChange={this.handleChange} value={value} placeholder="Select a date" visible={visible}/>
       )
     }
 }
 
-ReactDOM.render(<ExampleComponent/>,document.getElementById('root'));     
+ReactDOM.render(<ExampleComponent/>,document.getElementById('root'));      

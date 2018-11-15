@@ -4,7 +4,6 @@
 
 
 .simple-react-date-selector{
-
     font-size:14px !important;
 
     input[type=text]{
@@ -25,7 +24,7 @@
         @media screen and (max-height:$mobile-max-height) {
             width:$date-picker-width-mobile !important;
             height:$date-picker-height-mobile !important;
-            margin-top:$picker-top-position-mobile !important;
+            margin-top:$picker-top-position-mobile !important; 
         }
 
         border-radius:15px;
@@ -33,6 +32,7 @@
         padding-top:15px;
         
         .simple-react-date-selector-scrollables{
+            box-sizing: border-box;
             overflow-y:auto;
             height:$date-picker-height-desktop-scrollables;
             width:$date-picker-width-desktop;

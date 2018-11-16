@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import moment from "moment";
-
+import YearRange from "../../interfaces/YearRange";
 import Selections from "./item/selections";
-const currentYear = moment().year();
 
 interface Props {
   onChange: (value: string,type: string) => void;
@@ -11,6 +9,7 @@ interface Props {
   day: string;
   headerStyles: object;
   bodyStyles: object;
+  yearRange:YearRange;
 }
 
 class Year extends Component<Props, {}> {
@@ -20,9 +19,11 @@ class Year extends Component<Props, {}> {
   }
 
   getYearArray(): number[] {
+    const {yearRange}=this.props;
+
     const yearItems = [];
 
-    for (let x = currentYear - 15; x <= currentYear; x++) {
+    for (let x = yearRange.from; x <= yearRange.to; x++) {
       yearItems.push(x);
     }
 

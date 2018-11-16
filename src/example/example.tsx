@@ -51,7 +51,7 @@ class ExampleComponent extends Component<{},State>{
       const {value,visible}=this.state; 
 
       return (
-        <Datepicker onChange={this.handleChange} value={value} placeholder="Select a date" visible={visible}/>
+        <Datepicker yearRange={{from:2000,to:2015}} onChange={this.handleChange} value={value} placeholder="Select a date" visible={visible}/>
       )
     }
 }

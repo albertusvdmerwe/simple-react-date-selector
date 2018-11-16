@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment";
 import Pickers from "./subcomponents/pickers";
 import DateInputField from "./subcomponents/input-field";
 import GeneralModal from "./general-modal/general-modal";
@@ -6,6 +7,8 @@ import { deepClone } from "./helpers/objects.helpers";
 import { stylesObjects } from "./styles/styles-objects";
 import { defaultState } from "./state";
 const { header, body, container, footer } = stylesObjects;
+const currentYear = moment().year();
+import YearRange from "./interfaces/YearRange";
 
 interface Props {
   onChange: (fullDate: string) => void;
@@ -18,6 +21,7 @@ interface Props {
   containerStyles?: object;
   footerStyles?: object;
   visible?: boolean;
+  yearRange?:YearRange;
 }
 
 interface State {
@@ -130,7 +134,8 @@ class Datepicker extends Component<Props, State> {
       headerStyles = header,
       bodyStyles = body,
       containerStyles = container,
-      footerStyles = footer
+      footerStyles = footer,
+      yearRange={from:currentYear-15,to:currentYear+15}
     } = this.props;
 
     const { modalVisible } = this.state;
@@ -145,7 +150,8 @@ class Datepicker extends Component<Props, State> {
               bodyStyles,
               containerStyles,
               footerStyles,
-              headerStyles
+              headerStyles,
+              yearRange
             }}
             onChange={handleItemSelected}
           />

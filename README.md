@@ -32,6 +32,7 @@ A simple react date picker component.
 |containerStyles|false|style object|Additional styles that should be added to the container - The modal in which the day, month and year pickers are rendered|
 |footerStyles|false|style object|Additional styles that should be added to the footer - The footer that displays the currently selected year, month and day|
 |visible|false|boolean|You can programmatically set the visibility of the datepicker by specifying true (show the datepicker) or false (hide the datepicker)|
+|yearRange|false|object|Set the from and to year range. For example {from:2000,to:2015}. By default the range is from 15 years in the past to 15 years in the future|
 
 **Steps for including the component in your project:**
 

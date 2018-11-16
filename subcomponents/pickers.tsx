@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import YearRange from "../interfaces/YearRange";
 import Year from "./options/year";
 import Month from "./options/month";
 import Day from "./options/day";
@@ -14,6 +14,7 @@ interface Props {
   bodyStyles: object;
   containerStyles: object;
   footerStyles: object;
+  yearRange: YearRange;
 }
 
 class Pickers extends Component<Props, {}> {

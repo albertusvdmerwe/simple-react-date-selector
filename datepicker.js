@@ -23,6 +23,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import React, { Component } from "react";
+import moment from "moment";
 import Pickers from "./subcomponents/pickers";
 import DateInputField from "./subcomponents/input-field";
 import GeneralModal from "./general-modal/general-modal";
@@ -30,6 +31,7 @@ import { deepClone } from "./helpers/objects.helpers";
 import { stylesObjects } from "./styles/styles-objects";
 import { defaultState } from "./state";
 var header = stylesObjects.header, body = stylesObjects.body, container = stylesObjects.container, footer = stylesObjects.footer;
+var currentYear = moment().year();
 var Datepicker = /** @class */ (function (_super) {
     __extends(Datepicker, _super);
     function Datepicker(props) {
@@ -107,16 +109,17 @@ var Datepicker = /** @class */ (function (_super) {
         this.updateDatePickerVisibility();
     };
     Datepicker.prototype.render = function () {
-        var _a = this.props, placeholder = _a.placeholder, value = _a.value, _b = _a.headerStyles, headerStyles = _b === void 0 ? header : _b, _c = _a.bodyStyles, bodyStyles = _c === void 0 ? body : _c, _d = _a.containerStyles, containerStyles = _d === void 0 ? container : _d, _e = _a.footerStyles, footerStyles = _e === void 0 ? footer : _e;
+        var _a = this.props, placeholder = _a.placeholder, value = _a.value, _b = _a.headerStyles, headerStyles = _b === void 0 ? header : _b, _c = _a.bodyStyles, bodyStyles = _c === void 0 ? body : _c, _d = _a.containerStyles, containerStyles = _d === void 0 ? container : _d, _e = _a.footerStyles, footerStyles = _e === void 0 ? footer : _e, _f = _a.yearRange, yearRange = _f === void 0 ? { from: currentYear - 15, to: currentYear + 15 } : _f;
         var modalVisible = this.state.modalVisible;
-        var _f = this, handleItemSelected = _f.handleItemSelected, closeModal = _f.closeModal;
+        var _g = this, handleItemSelected = _g.handleItemSelected, closeModal = _g.closeModal;
         return (React.createElement("div", { className: "simple-react-date-selector" },
             React.createElement(GeneralModal, { visible: modalVisible, onClick: closeModal },
                 React.createElement(Pickers, __assign({}, this.state, {
                     bodyStyles: bodyStyles,
                     containerStyles: containerStyles,
                     footerStyles: footerStyles,
-                    headerStyles: headerStyles
+                    headerStyles: headerStyles,
+                    yearRange: yearRange
                 }, { onChange: handleItemSelected }))),
             React.createElement(DateInputField, { placeholder: placeholder, onClick: this.handleDateInputFieldClicked, value: value })));
     };

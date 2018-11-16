@@ -12,9 +12,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import React, { Component } from "react";
-import moment from "moment";
 import Selections from "./item/selections";
-var currentYear = moment().year();
 var Year = /** @class */ (function (_super) {
     __extends(Year, _super);
     function Year(props) {
@@ -23,8 +21,9 @@ var Year = /** @class */ (function (_super) {
         return _this;
     }
     Year.prototype.getYearArray = function () {
+        var yearRange = this.props.yearRange;
         var yearItems = [];
-        for (var x = currentYear - 15; x <= currentYear; x++) {
+        for (var x = yearRange.from; x <= yearRange.to; x++) {
             yearItems.push(x);
         }
         return yearItems.reverse();

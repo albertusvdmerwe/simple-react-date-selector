@@ -42,7 +42,7 @@ var ExampleComponent = /** @class */ (function (_super) {
     };
     ExampleComponent.prototype.render = function () {
         var _a = this.state, value = _a.value, visible = _a.visible;
-        return (React.createElement(Datepicker, { onChange: this.handleChange, value: value, placeholder: "Select a date", visible: visible }));
+        return (React.createElement(Datepicker, { yearRange: { from: 2000, to: 2015 }, onChange: this.handleChange, value: value, placeholder: "Select a date", visible: visible }));
     };
     return ExampleComponent;
 }(Component));

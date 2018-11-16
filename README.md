@@ -7,11 +7,13 @@ A simple react date picker component.
 ![selection](screenshots/selected.png)
 
 *Default styling:*
+
 ![year](screenshots/normal/year.png)
 ![month](screenshots/normal/month.png)
 ![day](screenshots/normal/day.png)
 
 *Custom styling:*
+
 ![year](screenshots/custom/year.png)
 ![month](screenshots/custom/month.png)
 ![day](screenshots/custom/day.png)
@@ -29,6 +31,7 @@ A simple react date picker component.
 |bodyStyles|false|style object|Additional styles that should be added to the body -  The day, month and year options|
 |containerStyles|false|style object|Additional styles that should be added to the container - The modal in which the day, month and year pickers are rendered|
 |footerStyles|false|style object|Additional styles that should be added to the footer - The footer that displays the currently selected year, month and day|
+|visible|false|boolean|You can programmatically set the visibility of the datepicker by specifying true (show the datepicker) or false (hide the datepicker)|
 
 **Steps for including the component in your project:**
 
@@ -73,6 +76,7 @@ export default class MyComponent extends Component{
                     onChange={date=>{this.setState({DateFrom:date})}}
                     placeholder={'From'}
                     value={this.state.DateFrom}
+                    visible={true}
                 />
                 <Datepicker  
                     onChange={date=>{this.setState({DateTo:date})}}

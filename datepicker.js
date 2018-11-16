@@ -26,6 +26,7 @@ import React, { Component } from "react";
 import Pickers from "./subcomponents/pickers";
 import DateInputField from "./subcomponents/input-field";
 import GeneralModal from "./general-modal/general-modal";
+import { deepClone } from "./helpers/objects.helpers";
 import { stylesObjects } from "./styles/styles-objects";
 import { defaultState } from "./state";
 var header = stylesObjects.header, body = stylesObjects.body, container = stylesObjects.container, footer = stylesObjects.footer;
@@ -67,6 +68,11 @@ var Datepicker = /** @class */ (function (_super) {
     Datepicker.prototype.closeModal = function () {
         this.setState(defaultState, this.checkAndInvokeListeners);
     };
+    Datepicker.prototype.showModal = function () {
+        var newState = deepClone(defaultState);
+        newState = Object.assign({}, newState, { modalVisible: true });
+        this.setState(newState, this.checkAndInvokeListeners);
+    };
     Datepicker.prototype.handleItemSelected = function (value, type) {
         if (type === "year") {
             this.setState({ year: value }, this.getSetFullDate);
@@ -81,12 +87,28 @@ var Datepicker = /** @class */ (function (_super) {
     Datepicker.prototype.handleDateInputFieldClicked = function () {
         this.setState({ modalVisible: true }, this.checkAndInvokeListeners);
     };
+    Datepicker.prototype.updateDatePickerVisibility = function () {
+        var _a = this.props.visible, visible = _a === void 0 ? null : _a;
+        if (typeof visible === "boolean") {
+            if (visible === true) {
+                this.showModal();
+            }
+            if (visible === false) {
+                this.closeModal();
+            }
+        }
+    };
+    Datepicker.prototype.componentDidUpdate = function (prevProps) {
+        if (this.props.visible !== prevProps.visible) {
+            this.updateDatePickerVisibility();
+        }
+    };
     Datepicker.prototype.render = function () {
-        var _a = this.props, placeholder = _a.placeholder, value = _a.value, _b = _a.headerStyles, headerStyles = _b === void 0 ? header : _b, _c = _a.bodyStyles, bodyStyles = _c === void 0 ? body : _c, _d = _a.containerStyles, containerStyles = _d === void 0 ? container : _d, _e = _a.footerStyles, footerStyles = _e === void 0 ? footer : _e;
+        var _a = this.props, placeholder = _a.placeholder, value = _a.value, _b = _a.headerStyles, headerStyles = _b === void 0 ? header : _b, _c = _a.bodyStyles, bodyStyles = _c === void 0 ? body : _c, _d = _a.containerStyles, containerStyles = _d === void 0 ? container : _d, _e = _a.footerStyles, footerStyles = _e === void 0 ? footer : _e, _f = _a.visible, visible = _f === void 0 ? null : _f;
         var modalVisible = this.state.modalVisible;
-        var _f = this, handleItemSelected = _f.handleItemSelected, closeModal = _f.closeModal;
+        var _g = this, handleItemSelected = _g.handleItemSelected, closeModal = _g.closeModal;
         return (React.createElement("div", { className: "simple-react-date-selector" },
-            React.createElement(GeneralModal, { visible: modalVisible, onClick: closeModal },
+            React.createElement(GeneralModal, { visible: !visible ? modalVisible : visible, onClick: closeModal },
                 React.createElement(Pickers, __assign({}, this.state, {
                     bodyStyles: bodyStyles,
                     containerStyles: containerStyles,

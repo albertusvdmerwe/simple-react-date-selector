@@ -40,7 +40,7 @@ class ExampleComponent extends Component<{},State>{
         */
 
         window.setInterval(()=>{
-          this.setState({visible:(this.state.visible)?false:true});   
+          this.setState({visible:!this.state.visible});   
         },5000);
     }
 
@@ -56,4 +56,4 @@ class ExampleComponent extends Component<{},State>{
     }
 }
 
-ReactDOM.render(<ExampleComponent/>,document.getElementById('root'));      
+ReactDOM.render(<ExampleComponent/>,document.getElementById('root'));       

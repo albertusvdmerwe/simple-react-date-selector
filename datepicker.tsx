@@ -2,22 +2,22 @@ import React, { Component } from "react";
 import Pickers from "./subcomponents/pickers";
 import DateInputField from "./subcomponents/input-field";
 import GeneralModal from "./general-modal/general-modal";
-import {deepClone} from "./helpers/objects.helpers";
+import { deepClone } from "./helpers/objects.helpers";
 import { stylesObjects } from "./styles/styles-objects";
 import { defaultState } from "./state";
 const { header, body, container, footer } = stylesObjects;
 
 interface Props {
   onChange: (fullDate: string) => void;
-  onOpened?: () => void;
-  onClosed?: () => void;
   placeholder: string;
   value: string;
+  onOpened?: () => void;
+  onClosed?: () => void;
   headerStyles?: object;
   bodyStyles?: object;
   containerStyles?: object;
   footerStyles?: object;
-  visible?:boolean;
+  visible?: boolean;
 }
 
 interface State {
@@ -70,9 +70,10 @@ class Datepicker extends Component<Props, State> {
     this.setState(defaultState, this.checkAndInvokeListeners);
   }
 
-  showModal():void{
-    const newState=deepClone(defaultState);
-    newState.modalVisible=true;
+  showModal(): void {
+    let newState: object = deepClone(defaultState);
+    newState = Object.assign({}, newState, { modalVisible: true });
+    this.setState(newState, this.checkAndInvokeListeners); 
   }
 
   handleItemSelected(value: string, type: string): void {
@@ -93,17 +94,30 @@ class Datepicker extends Component<Props, State> {
     this.setState({ modalVisible: true }, this.checkAndInvokeListeners);
   }
 
-  componentDidMount() {
-
-    /*Check if the developer set it to be visible explicitly.*/
-
-    const {visible=null}=this.props;
-    if(typeof visible==="boolean")
-    {
+  updateDatePickerVisibility():void{
+    const { visible = null } = this.props;
+    if (typeof visible === "boolean") {
       
+      if(visible===true)
+      {
+        this.showModal();
+      }
+
+      if(visible===false)
+      {
+        this.closeModal();
+      }
     }
   }
-  
+
+
+  componentDidUpdate(prevProps) {
+    
+    if(this.props.visible!==prevProps.visible)
+    {
+      this.updateDatePickerVisibility();
+    }
+  }
 
   render() {
     const {
@@ -112,7 +126,8 @@ class Datepicker extends Component<Props, State> {
       headerStyles = header,
       bodyStyles = body,
       containerStyles = container,
-      footerStyles = footer
+      footerStyles = footer,
+      visible=null
     } = this.props;
 
     const { modalVisible } = this.state;
@@ -120,7 +135,7 @@ class Datepicker extends Component<Props, State> {
 
     return (
       <div className="simple-react-date-selector">
-        <GeneralModal visible={modalVisible} onClick={closeModal}>
+        <GeneralModal visible={!visible?modalVisible:visible} onClick={closeModal}>
           <Pickers
             {...this.state}
             {...{

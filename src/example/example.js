@@ -37,7 +37,7 @@ var ExampleComponent = /** @class */ (function (_super) {
         */
         var _this = this;
         window.setInterval(function () {
-            _this.setState({ visible: (_this.state.visible) ? false : true });
+            _this.setState({ visible: !_this.state.visible });
         }, 5000);
     };
     ExampleComponent.prototype.render = function () {

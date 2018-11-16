@@ -17,7 +17,7 @@ class ExampleComponent extends Component<{},State>{
       super(props);
       this.state={
         value:"",
-        visible:false
+        visible:true
       }
 
       /*reset this keyword to be this class - callbacks change the this keyword, change it back*/

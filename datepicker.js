@@ -103,12 +103,15 @@ var Datepicker = /** @class */ (function (_super) {
             this.updateDatePickerVisibility();
         }
     };
+    Datepicker.prototype.componentDidMount = function () {
+        this.updateDatePickerVisibility();
+    };
     Datepicker.prototype.render = function () {
-        var _a = this.props, placeholder = _a.placeholder, value = _a.value, _b = _a.headerStyles, headerStyles = _b === void 0 ? header : _b, _c = _a.bodyStyles, bodyStyles = _c === void 0 ? body : _c, _d = _a.containerStyles, containerStyles = _d === void 0 ? container : _d, _e = _a.footerStyles, footerStyles = _e === void 0 ? footer : _e, _f = _a.visible, visible = _f === void 0 ? null : _f;
+        var _a = this.props, placeholder = _a.placeholder, value = _a.value, _b = _a.headerStyles, headerStyles = _b === void 0 ? header : _b, _c = _a.bodyStyles, bodyStyles = _c === void 0 ? body : _c, _d = _a.containerStyles, containerStyles = _d === void 0 ? container : _d, _e = _a.footerStyles, footerStyles = _e === void 0 ? footer : _e;
         var modalVisible = this.state.modalVisible;
-        var _g = this, handleItemSelected = _g.handleItemSelected, closeModal = _g.closeModal;
+        var _f = this, handleItemSelected = _f.handleItemSelected, closeModal = _f.closeModal;
         return (React.createElement("div", { className: "simple-react-date-selector" },
-            React.createElement(GeneralModal, { visible: !visible ? modalVisible : visible, onClick: closeModal },
+            React.createElement(GeneralModal, { visible: modalVisible, onClick: closeModal },
                 React.createElement(Pickers, __assign({}, this.state, {
                     bodyStyles: bodyStyles,
                     containerStyles: containerStyles,

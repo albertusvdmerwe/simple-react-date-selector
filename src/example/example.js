@@ -20,7 +20,7 @@ var ExampleComponent = /** @class */ (function (_super) {
         var _this = _super.call(this, props) || this;
         _this.state = {
             value: "",
-            visible: false
+            visible: true
         };
         /*reset this keyword to be this class - callbacks change the this keyword, change it back*/
         _this.handleChange = _this.handleChange.bind(_this);

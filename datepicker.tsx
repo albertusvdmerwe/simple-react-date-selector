@@ -119,6 +119,10 @@ class Datepicker extends Component<Props, State> {
     }
   }
 
+  componentDidMount(){
+    this.updateDatePickerVisibility();
+  }
+
   render() {
     const {
       placeholder,
@@ -126,8 +130,7 @@ class Datepicker extends Component<Props, State> {
       headerStyles = header,
       bodyStyles = body,
       containerStyles = container,
-      footerStyles = footer,
-      visible=null
+      footerStyles = footer
     } = this.props;
 
     const { modalVisible } = this.state;
@@ -135,7 +138,7 @@ class Datepicker extends Component<Props, State> {
 
     return (
       <div className="simple-react-date-selector">
-        <GeneralModal visible={!visible?modalVisible:visible} onClick={closeModal}>
+        <GeneralModal visible={modalVisible} onClick={closeModal}>
           <Pickers
             {...this.state}
             {...{

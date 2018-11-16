@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "webpack-dev-server",
-    "publish":"tsc && gulp transpile_js && gulp transpile_styles && npm publish",
+    "publish-to-npm":"tsc && gulp transpile_js && gulp transpile_styles && npm publish",
     "prepare-example":"tsc && gulp transpile_js && gulp transpile_styles && npm run start:dev"
   },
   "author": "albert <albertusvdmerwe@gmail.com>",
